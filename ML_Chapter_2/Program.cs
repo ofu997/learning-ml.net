@@ -11,7 +11,7 @@ namespace ML_Chapter_2
             if (args.Length != 2)
             {
                 Console.WriteLine($"Invalid arguments passed in, exiting.{Environment.NewLine}{Environment.NewLine}Usage:{Environment.NewLine}" +
-                                  $"predict <sentence of text to predict against>{Environment.NewLine}" +
+                                  $"predict <path to input json file>{Environment.NewLine}" +
                                   $"or {Environment.NewLine}" +
                                   $"train <path to training data file>{Environment.NewLine}");
                 return;

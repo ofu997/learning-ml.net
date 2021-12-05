@@ -1,6 +1,7 @@
 ﻿using Microsoft.ML;
 using ML_Chapter_2.ML.Base;
 using ML_Chapter_2.ML.Objects;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,11 +13,18 @@ namespace ML_Chapter_2.ML
     //given the relatively simple input
     public class Predictor : BaseML
     {
-        public void Predict(string inputData)
+        public void Predict(string inputDataFile)
         {
             if (!File.Exists(ModelPath))
             {
                 Console.WriteLine($"Failed to find model at {ModelPath}");
+
+                return;
+            }
+
+            if (!File.Exists(inputDataFile))
+            {
+                Console.WriteLine($"Failed to find input data at {inputDataFile}");
 
                 return;
             }
@@ -35,11 +43,18 @@ namespace ML_Chapter_2.ML
                 return;
             }
 
-            var predictionEngine = MlContext.Model.CreatePredictionEngine<RestaurantFeedback, RestaurantPrediction>(mlModel);
+            var predictionEngine = MlContext.Model.CreatePredictionEngine<EmploymentHistory,
+EmploymentHistoryPrediction>(mlModel);
 
-            var prediction = predictionEngine.Predict(new RestaurantFeedback { Text = inputData });
+            var json = File.ReadAllText(inputDataFile);
 
-            Console.WriteLine($"Based on \"{inputData}\", the feedback is predicted to be:{Environment.NewLine}{(prediction.Prediction ? "Negative" : "Positive")} at a {prediction.Probability:P0} confidence");
+            var prediction = predictionEngine.Predict(JsonConvert.DeserializeObject<EmploymentHistory>(json));
+
+            Console.WriteLine(
+                $"Based on input json: {Environment.NewLine}" +
+                $"{json} {Environment.NewLine}" +
+                $"The employee is predicted to work {prediction.DurationInMonths:#.##} months"
+            );
         }
     }
 }

@@ -2,9 +2,8 @@
 using ML_Chapter_2.ML.Base;
 using ML_Chapter_2.ML.Objects;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using ML_Chapter_2.Common;
 
 namespace ML_Chapter_2.ML
 {
@@ -19,38 +18,39 @@ namespace ML_Chapter_2.ML
                 return;
             }
 
-            var trainingDataView = MlContext.Data.LoadFromTextFile<RestaurantFeedback>(trainingFileName);
+            var trainingDataView = MlContext.Data.LoadFromTextFile<EmploymentHistory>(trainingFileName, ',');
 
-            var dataSplit = MlContext.Data.TrainTestSplit(trainingDataView, testFraction: 0.2);
+            var dataSplit = MlContext.Data.TrainTestSplit(trainingDataView, testFraction: 0.4);
 
-            var dataProcessPipeline = MlContext.Transforms.Text.FeaturizeText(
-                outputColumnName: "Features",
-                inputColumnName: nameof(RestaurantFeedback.Text));
+            var dataProcessPipeline = MlContext.Transforms.CopyColumns("Label", nameof(EmploymentHistory.DurationInMonths))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.IsMarried)))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.BSDegree)))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.MSDegree)))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.YearsExperience))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.AgeAtHire)))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.HasKids)))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.WithinMonthOfVesting)))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.DeskDecorations)))
+                .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.LongCommute)))
+                .Append(MlContext.Transforms.Concatenate("Features",
+                    typeof(EmploymentHistory).ToPropertyList<EmploymentHistory>(nameof(EmploymentHistory.DurationInMonths)))));
 
-            var sdcaRegressionTrainer = MlContext.BinaryClassification.Trainers.SdcaLogisticRegression(
-                labelColumnName: nameof(RestaurantFeedback.Label),
-                featureColumnName: "Features");
+            var trainer = MlContext.Regression.Trainers.Sdca(labelColumnName: "Label", featureColumnName: "Features");
 
-            var trainingPipeline = dataProcessPipeline.Append(sdcaRegressionTrainer);
+            var trainingPipeline = dataProcessPipeline.Append(trainer);
 
             ITransformer trainedModel = trainingPipeline.Fit(dataSplit.TrainSet);
             MlContext.Model.Save(trainedModel, dataSplit.TrainSet.Schema, ModelPath);
 
-            // where you left off o.f
             var testSetTransform = trainedModel.Transform(dataSplit.TestSet);
 
-            var modelMetrics = MlContext.BinaryClassification.Evaluate(
-                data: testSetTransform,
-                labelColumnName: nameof(RestaurantFeedback.Label),
-                scoreColumnName: nameof(RestaurantPrediction.Score));
+            var modelMetrics = MlContext.Regression.Evaluate(testSetTransform);
 
-            Console.WriteLine($"Area Under Curve: {modelMetrics.AreaUnderRocCurve:P2}{Environment.NewLine}" +
-                              $"Area Under Precision Recall Curve: {modelMetrics.AreaUnderPrecisionRecallCurve:P2}{Environment.NewLine}" +
-                              $"Accuracy: {modelMetrics.Accuracy:P2}{Environment.NewLine}" +
-                              $"F1Score: {modelMetrics.F1Score:P2}{Environment.NewLine}" +
-                              $"Positive Recall: {modelMetrics.PositiveRecall:#.##}{Environment.NewLine}" +
-                              $"Negative Recall: {modelMetrics.NegativeRecall:#.##}{Environment.NewLine}");
-
+            Console.WriteLine($"Loss Function: {modelMetrics.LossFunction:0.##}{Environment.NewLine}" +
+                              $"Mean Absolute Error: {modelMetrics.MeanAbsoluteError:#.##}{Environment.NewLine}" +
+                              $"Mean Squared Error: {modelMetrics.MeanSquaredError:#.##}{Environment.NewLine}" +
+                              $"RSquared: {modelMetrics.RSquared:0.##}{Environment.NewLine}" +
+                              $"Root Mean Squared Error: {modelMetrics.RootMeanSquaredError:#.##}");
         }
     }
 }
