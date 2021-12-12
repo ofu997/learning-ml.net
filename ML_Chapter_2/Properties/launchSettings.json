@@ -2,7 +2,7 @@
   "profiles": {
     "ML_Chapter_2": {
       "commandName": "Project",
-      "commandLineArgs": "train ../../../Data/ch3-sampledata.csv"
+      "commandLineArgs": "predict input.json"
     }
   }
 }
