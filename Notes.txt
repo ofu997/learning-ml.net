@@ -44,6 +44,7 @@ Based on the file (./LogisticRegression.exe) the file is classified as benign at
 
 
 Chapter 4 : Classification Model
+Train
 PS C:\Users\ofu23\Documents\Projects\ML_Chapter_2\4_classification\bin\debug\netcoreapp3.1> ./Chapter_4_classification.exe train ../../../Data/sampledata.csv ../../../Data/testdata.csv
 Accuracy: 88.89%
 Area Under Curve: 100.00%
@@ -55,6 +56,48 @@ PositivePrecision: 1
 PositiveRecall: .78
 NegativePrecision: .82
 NegativeRecall: 100.00%
+
+Predict
+PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\4_classification\bin\debug\netcoreapp3.1> ./Chapter_4_classification.exe predict ../../../Data/jsconfig1.json
+Based on input json:
+{
+
+  "HasSunroof": 0,
+  "HasAC": 0,
+  "HasAutomaticTransmission": 0,
+  "Amount": 1300
+}
+The car price is a good deal, with a 100% confidence
+
+Multiclass
+Train
+PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\bin\debug\netcoreapp3.1>  ./Chapter_4_multiclass_classification.exe train ../../../Data/sampledata.csv ../../../Data/testdata.csv
+MicroAccuracy: 1
+MacroAccuracy: 1
+LogLoss: .094
+LogLossReduction: .865
+
+Predict
+PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\bin\debug\netcoreapp3.1>  ./Chapter_4_multiclass_classification.exe predict ../../../Data/input.json
+Based on input json:
+{
+  "Subject": "Bye",
+  "Body": "Hate evil anger!!!",
+  "Sender": "joe@gmail.com"
+}
+
+The email is predicted to be a "enemy"
+
+Properties and metrics: 
+	-Accuracy
+	-Area Under ROC Curve
+	-F1 Score
+	-Area Under Precision-Recall Curve
+	From MulticlassClassificationMetrics
+	-Micro Accuracy
+	-Macro Accuracy
+	-Log Loss
+	-Log-Loss Reduction
 
 ----   ---   ---
 passing args to Main method: 

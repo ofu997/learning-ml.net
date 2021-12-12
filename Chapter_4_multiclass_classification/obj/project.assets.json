@@ -5538,11 +5538,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\ML_Chapter_2\\ML_Chapter_2.csproj",
-      "projectName": "ML_Chapter_2",
-      "projectPath": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\ML_Chapter_2\\ML_Chapter_2.csproj",
+      "projectUniqueName": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\Chapter_4_multiclass_classification\\Chapter_4_multiclass_classification.csproj",
+      "projectName": "Chapter_4_multiclass_classification",
+      "projectPath": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\Chapter_4_multiclass_classification\\Chapter_4_multiclass_classification.csproj",
       "packagesPath": "C:\\Users\\ofu23\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\ML_Chapter_2\\obj\\",
+      "outputPath": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\Chapter_4_multiclass_classification\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ofu23\\AppData\\Roaming\\NuGet\\NuGet.Config",

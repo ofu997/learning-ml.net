@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3U+EHtHvwEyIu1M+QJJQaVSViAv90RDsbN4qrDBcFuvHfYLjrgT/qMs7eogffT/LW7ww1jKXgkhQ5424zgJ6jw==",
+  "dgSpecHash": "gF5r9LQrFhI6uVJZyY+ix+Bq3kzbG1Emh3B6N7K474Ofh7u6aWI5Zo7NPubIsTy0JbHK6x1wyto02jbZCffJSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\ML_Chapter_2\\ML_Chapter_2.csproj",
+  "projectFilePath": "C:\\Users\\ofu23\\Documents\\Projects\\Learn-ML.NET\\Chapter_4_multiclass_classification\\Chapter_4_multiclass_classification.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ofu23\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",
     "C:\\Users\\ofu23\\.nuget\\packages\\microsoft.ml\\1.7.0\\microsoft.ml.1.7.0.nupkg.sha512",

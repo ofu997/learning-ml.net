@@ -11,6 +11,7 @@ namespace Chapter_4_classification.ML
 {
     public class Trainer : BaseML
     {
+        // see page 33 for explanations
         public void Train(string trainingFileName, string testFileName)
         {
             if (!File.Exists(trainingFileName))
@@ -27,6 +28,7 @@ namespace Chapter_4_classification.ML
                 return;
             }
 
+            //gets columns of CarInventory class
             var trainingDataView = MlContext.Data.LoadFromTextFile<CarInventory>(trainingFileName, ',', hasHeader: false);
 
             IEstimator<ITransformer> dataProcessPipeline = MlContext.Transforms.Concatenate("Features",
