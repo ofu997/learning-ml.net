@@ -30,7 +30,8 @@ many months the employee is projected to be at his or her job in the DurationInM
 property
 
 Chapter 3 : Linear Regression 
-PS C:\Users\ofu23\Documents\Projects\ML_Chapter_2\ML_Chapter_2\bin\Debug\netcoreapp3.1> .\ML_Chapter_2.exe train ..\..\..\Data\ch3-sampledata.csv
+PS C:\Users\ofu23\Documents\Projects\ML_Chapter_2\ML_Chapter_2\bin\Debug\netcoreapp3.1> 
+.\ML_Chapter_2.exe train ..\..\..\Data\ch3-sampledata.csv
 Loss Function: 47.07
 Mean Absolute Error: 6.1
 Mean Squared Error: 47.07
@@ -39,13 +40,15 @@ Root Mean Squared Error: 6.86
 
 Chapter 3 : Regression Model
 logistic regression command
-PS C:\Users\ofu23\Documents\Projects\ML_Chapter_2\LogisticRegression\bin\debug\netcoreapp3.1> ./LogisticRegression.exe predict ./LogisticRegression.exe
+PS C:\Users\ofu23\Documents\Projects\ML_Chapter_2\LogisticRegression\bin\debug\netcoreapp3.1> 
+./LogisticRegression.exe predict ./LogisticRegression.exe
 Based on the file (./LogisticRegression.exe) the file is classified as benign at a confidence level of 21%
 
 
 Chapter 4 : Classification Model
 Train
-PS C:\Users\ofu23\Documents\Projects\ML_Chapter_2\4_classification\bin\debug\netcoreapp3.1> ./Chapter_4_classification.exe train ../../../Data/sampledata.csv ../../../Data/testdata.csv
+PS C:\Users\ofu23\Documents\Projects\ML_Chapter_2\4_classification\bin\debug\netcoreapp3.1> 
+./Chapter_4_classification.exe train ../../../Data/sampledata.csv ../../../Data/testdata.csv
 Accuracy: 88.89%
 Area Under Curve: 100.00%
 Area under Precision recall Curve: 100.00%
@@ -58,7 +61,8 @@ NegativePrecision: .82
 NegativeRecall: 100.00%
 
 Predict
-PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\4_classification\bin\debug\netcoreapp3.1> ./Chapter_4_classification.exe predict ../../../Data/jsconfig1.json
+PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\4_classification\bin\debug\netcoreapp3.1> 
+./Chapter_4_classification.exe predict ../../../Data/jsconfig1.json
 Based on input json:
 {
 
@@ -71,7 +75,8 @@ The car price is a good deal, with a 100% confidence
 
 Multiclass
 Train
-PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\bin\debug\netcoreapp3.1>  ./Chapter_4_multiclass_classification.exe train ../../../Data/sampledata.csv ../../../Data/testdata.csv
+PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\bin\debug\netcoreapp3.1>  
+./Chapter_4_multiclass_classification.exe train ../../../Data/sampledata.csv ../../../Data/testdata.csv
 MicroAccuracy: 1
 MacroAccuracy: 1
 LogLoss: .094
@@ -98,6 +103,70 @@ Properties and metrics:
 	-Macro Accuracy
 	-Log Loss
 	-Log-Loss Reduction
+
+Chapter 5
+Currently, in ML.NET there is only one cluster algorithm, k-means. In this chapter, we will
+dive into k-means clustering as well as the various applications best suited to utilizing a
+clustering algorithm. In addition, we will build a new ML.NET clustering application that
+determines the type of a file simply by looking at the content. 
+
+Chapter 6
+We will build two new example applications: one anomaly detection application that determines whether the login
+attempt is abnormally demonstrating the randomized PCA trainer, and one that demonstrates time series in a 
+network traffic anomaly detection application. 
+
+Chapter 7
+We will build a new sample application to predict music recommendations based on the sample
+training data.
+Matrix factorizations suggest other matches based on previously unselected data. Without 
+needing to do manual spot-checking, matrix factorization algorithms train on this 
+unselected data and determine patterns using a key-value pair combination.
+Suited for making recommendations.
+
+Train
+PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_7_MatrixFactorization\bin\Debug\netcoreapp3.1> 
+./Chapter_7_MatrixFactorization.exe train ../../../Data/sampledata.csv ../../../Data/testdata.csv
+iter      tr_rmse          obj
+   0       2.4118   9.5661e+01
+   1       1.9077   6.2487e+01
+   2       1.5516   4.3757e+01
+   3       1.3549   3.5389e+01
+   4       1.2469   3.1351e+01
+   5       1.1856   2.9147e+01
+   6       1.1177   2.6665e+01
+   7       1.0387   2.4122e+01
+   8       0.9593   2.1707e+01
+   9       0.8744   1.9519e+01
+  10       0.7948   1.7793e+01
+  11       0.7127   1.5783e+01
+  12       0.6592   1.4840e+01
+  13       0.6254   1.4076e+01
+  14       0.5561   1.3151e+01
+  15       0.4993   1.2296e+01
+  16       0.4739   1.2044e+01
+  17       0.4372   1.1572e+01
+  18       0.4209   1.1443e+01
+  19       0.4004   1.1296e+01
+Model saved to C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_7_MatrixFactorization\bin\Debug\netcoreapp3.1\chapter7.mdl
+
+Matrix Factorization Evaluation:
+
+Loss Function: 0.105
+Mean Absolute Error: 0.244
+Mean Squared Error: 0.105
+R Squared: 0.942
+Root Mean Squared Error: 0.325
+
+Predict
+PS C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_7_MatrixFactorization\bin\Debug\netcoreapp3.1> 
+./Chapter_7_MatrixFactorization.exe predict ../../../Data/input.json
+Based on input:
+Label: 3 | MusicID: 4 | UserID: 10
+The music is not recommended
+
+Chapter 8
+The application we will be building uses forecasting to predict stock prices based
+on a series of trends. 
 
 ----   ---   ---
 passing args to Main method: 

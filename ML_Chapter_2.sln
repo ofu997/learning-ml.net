@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter_4_classification", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter_4_multiclass_classification", "Chapter_4_multiclass_classification\Chapter_4_multiclass_classification.csproj", "{88ABE7D7-DFD9-4BA9-8073-CFA4DC13CD50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter_7_MatrixFactorization", "Chapter_7_MatrixFactorization\Chapter_7_MatrixFactorization.csproj", "{7026232F-F1C9-40B1-9A42-A7EFCA63BADB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{88ABE7D7-DFD9-4BA9-8073-CFA4DC13CD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88ABE7D7-DFD9-4BA9-8073-CFA4DC13CD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88ABE7D7-DFD9-4BA9-8073-CFA4DC13CD50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7026232F-F1C9-40B1-9A42-A7EFCA63BADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7026232F-F1C9-40B1-9A42-A7EFCA63BADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7026232F-F1C9-40B1-9A42-A7EFCA63BADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7026232F-F1C9-40B1-9A42-A7EFCA63BADB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,3 +30,4 @@ C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classificati
 C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\obj\Debug\netcoreapp3.1\Chapter_4_multiclass_classification.dll
 C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\obj\Debug\netcoreapp3.1\Chapter_4_multiclass_classification.pdb
 C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\obj\Debug\netcoreapp3.1\Chapter_4_multiclass_classification.genruntimeconfig.cache
+C:\Users\ofu23\Documents\Projects\Learn-ML.NET\Chapter_4_multiclass_classification\obj\Debug\netcoreapp3.1\Chapter_4_multiclass_classification.csprojAssemblyReference.cache
